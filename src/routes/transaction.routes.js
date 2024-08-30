@@ -5,11 +5,12 @@ import {
     getAllUserTransactions,
     getUserTransactionByNo,
 } from "../controllers/transaction.controllers.js"
+import { checkUserExistence } from "../middlewares.js"
 
 
 const TransactionsRouter = express.Router()
 
-TransactionsRouter.post("/create", createNewTransaction)
+TransactionsRouter.post("/create", checkUserExistence, createNewTransaction)
 TransactionsRouter.get("/get/:transactionNo", getUserTransactionByNo)
 TransactionsRouter.get("/all", getAllTransactions)
 TransactionsRouter.get("/all/user/:userId", getAllUserTransactions)

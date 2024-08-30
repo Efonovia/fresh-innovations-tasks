@@ -28,10 +28,10 @@ export const createNewTransaction = async (req, res) => {
         await newTransaction.save();
 
         console.log('New transaction added successfully');
-        return res.status(201).json({ exists: false, body: newTransaction });
+        return res.status(201).json({ ok: true, body: newTransaction });
 
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({ ok: false, error: error.message });
     }
 }
 
