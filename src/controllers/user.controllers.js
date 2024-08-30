@@ -46,7 +46,7 @@ export const createNewUser = async (req, res) => {
         await newUser.save();
 
         console.log('New user added successfully');
-        return res.status(201).json({ exists: false, body: newUser });
+        return res.status(201).json({ ok: true, body: newUser });
 
     } catch (error) {
         return res.status(500).json({ error: error.message });
