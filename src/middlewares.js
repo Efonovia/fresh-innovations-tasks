@@ -1,4 +1,4 @@
-import UserDatabase from "../models/user.models.js"
+import UserDatabase from "./models/user.models.js"
 
 
 export const checkUserExistence = async(req, res, next) => {
