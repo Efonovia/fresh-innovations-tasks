@@ -17,7 +17,7 @@ export const createNewUser = async (req, res) => {
             return res.status(400).json({ ok: false, error: "please put a valid email address" })
         }
 
-        if(oauthProvider === "default" && password.length < 8) { 
+        if(oauthProvider === "default" && password?.length < 8) { 
             return res.status(400).json({ ok: false, error: "password must be greater than 8 characters" })
         }
 
@@ -49,7 +49,7 @@ export const createNewUser = async (req, res) => {
         return res.status(201).json({ ok: true, body: newUser });
 
     } catch (error) {
-        return res.status(500).json({ error: error.message });
+        return res.status(500).json({ ok: false, error: error.message });
     }
 }
 
@@ -67,7 +67,11 @@ export const loginUser = async(req, res) => {
         return res.status(400).json({ok: false, msg: "No account exists with that email. Try creating an account" })
       }
   
-      if(oauthProvider === "default") {
+      if(oauthProvider !== user.oauthProvider) {
+        return res.status(400).json({ ok: false, error: "oauth provider mismatch" })
+      }
+
+      if(user.oauthProvider === "default") {
           //Check if password is correct
           const isMatch = await bcrypt.compare(password, user.password)
           if(!isMatch) return res.status(400).json({ok: false, msg: "Incorrect Password" })
