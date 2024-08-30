@@ -1,7 +1,7 @@
 
 # FRESH INNOVATIONS API
 
-This API is made up of two data models:
+This API was built using Node.js and Express.js alongside mongoDB as the database. It is made up of two data models:
 
 ### 1. USER
 the user model is described as follows:
