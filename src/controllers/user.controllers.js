@@ -131,6 +131,10 @@ export const changeUserPassword = async(req, res) => {
             return res.status(400).json({ ok: false, error: `User signed in with ${user.oauthProvider}. Password can't be changed.` })
         }
 
+        if(newPassword?.length < 8) { 
+            return res.status(400).json({ ok: false, error: "password must be greater than 8 characters" })
+        }
+
         const isMatch = await bcrypt.compare(currentPassword, user.password)
         if(!isMatch) return res.status(400).json({ ok: false, msg: "Old password is incorrect." })
         
