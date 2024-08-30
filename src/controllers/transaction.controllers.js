@@ -70,7 +70,7 @@ export const getAllUserTransactions = async(req, res) => {
 export const getAllTransactions = async(req, res) => {
     try {
 
-        const transactions = await TransactionDatabase.find({ user: userId }, { __v: 0 })
+        const transactions = await TransactionDatabase.find({ }, { __v: 0 })
 
         return res.status(200).json({
             ok: true,
