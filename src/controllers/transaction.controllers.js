@@ -37,8 +37,8 @@ export const createNewTransaction = async (req, res) => {
 
 export const getUserTransactionByNo = async(req, res) => {
     try {
-        const { transactionNo, userId } = req.body
-        const transaction = await TransactionDatabase.findOne({ transactionNo, user: userId }, { __v: 0 })
+        const { transactionNo } = req.params
+        const transaction = await TransactionDatabase.findOne({ transactionNo }, { __v: 0 })
 
         if(transaction) {
             return res.status(200).json({ ok: true, body: transaction })
