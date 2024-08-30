@@ -42,6 +42,7 @@ const UserSchema = mongoose.Schema({
     accountStatus: {
         type: String,
         default: "",
+        required: true
     },
     referralCode: {
         type: String,
