@@ -35,7 +35,7 @@ export const createNewTransaction = async (req, res) => {
     }
 }
 
-export const getUserTransactionByNo = async(req, res) => {
+export const getTransactionByNo = async(req, res) => {
     try {
         const { transactionNo } = req.params
         const transaction = await TransactionDatabase.findOne({ transactionNo }, { __v: 0 })

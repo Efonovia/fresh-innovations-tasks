@@ -3,7 +3,7 @@ import {
     createNewTransaction,
     getAllTransactions,
     getAllUserTransactions,
-    getUserTransactionByNo,
+    getTransactionByNo,
 } from "../controllers/transaction.controllers.js"
 import { checkUserExistence } from "../middlewares.js"
 
@@ -11,7 +11,7 @@ import { checkUserExistence } from "../middlewares.js"
 const TransactionsRouter = express.Router()
 
 TransactionsRouter.post("/create", checkUserExistence, createNewTransaction)
-TransactionsRouter.get("/get/:transactionNo", getUserTransactionByNo)
+TransactionsRouter.get("/get/:transactionNo", getTransactionByNo)
 TransactionsRouter.get("/all", getAllTransactions)
 TransactionsRouter.get("/all/user/:userId", checkUserExistence, getAllUserTransactions)
 
