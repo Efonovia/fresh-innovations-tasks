@@ -21,7 +21,7 @@ app.use(cors())
 
 
 app.get("/", (req, res) => {
-    res.send("Welcome to Fresh Innovations...")
+    res.send("Welcome to FreshTech Innovations...")
 })
 
 app.use("/users", UsersRouter)
