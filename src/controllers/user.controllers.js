@@ -39,7 +39,8 @@ export const createNewUser = async (req, res) => {
             email,
             password: oauthProvider === "default" ? passwordHash : "",
             accountStatus: "active",
-            referralCode: generateReferralCode()
+            referralCode: generateReferralCode(),
+            oauthProvider,
         });
 
         await newUser.save();
