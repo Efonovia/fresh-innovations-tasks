@@ -8,7 +8,30 @@ const TransactionSchema = mongoose.Schema({
         min: 2,
         max: 70,
         trim: true,
-        required: true
+    },
+    network: {
+        type: String,
+        default: "",
+        min: 2,
+        max: 30,
+        trim: true,
+        required: true,
+    },
+    phoneNumber: {
+        type: String,
+        default: "",
+        min: 2,
+        max: 30,
+        trim: true,
+        required: true,
+    },
+    airtimeSharePin: {
+        type: String,
+        default: "",
+        min: 2,
+        max: 30,
+        trim: true,
+        required: true,
     },
     user: {
         type: mongoose.Schema.Types.ObjectId,
@@ -35,7 +58,6 @@ const TransactionSchema = mongoose.Schema({
         min: 2,
         max: 20,
         trim: true,
-        required: true
     },
     transactionNo: {
         type: String,

@@ -38,7 +38,7 @@ const mongooseConnectionOptions = {
 mongoose.connect(process.env.MONGO_URL, mongooseConnectionOptions)
 
 mongoose.connection.on('connected', () => {
-    console.log("Connected to MongoDB")
+    console.log("Connected to MongoDB database")
     app.listen(PORT, () => {
         console.log("Server running at PORT: " + PORT)
     })
