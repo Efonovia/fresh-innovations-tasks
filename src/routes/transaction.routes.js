@@ -4,7 +4,7 @@ import {
     getAllTransactions,
     getAllUserTransactions,
     getUserTransactionByNo,
-} from "./controllers/transaction.controllers.js"
+} from "../controllers/transaction.controllers.js"
 
 
 const TransactionsRouter = express.Router()

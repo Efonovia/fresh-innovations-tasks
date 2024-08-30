@@ -5,8 +5,8 @@ import cors from "cors"
 import dotenv from "dotenv"
 import helmet from "helmet";
 import morgan from "morgan";
-import UsersRouter from "./src/user.routes.js";
-import TransactionsRouter from "./src/transaction.routes.js";
+import UsersRouter from "./src/routes/user.routes.js";
+import TransactionsRouter from "./src/routes/transaction.routes.js";
 
 
 dotenv.config()
